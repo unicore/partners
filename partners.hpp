@@ -5,6 +5,7 @@
 #include <eosio/multi_index.hpp>
 #include <eosio/contract.hpp>
 #include <eosio/crypto.hpp>
+#include "consts.hpp"
 
 // #define isDebug = TRUE
 class [[eosio::contract]] part : public eosio::contract {
@@ -21,7 +22,7 @@ public:
     void apply(uint64_t receiver, uint64_t code, uint64_t action);
     
     
-    static constexpr eosio::name _me = "part"_n;
+    
         
     
     static uint128_t combine_ids(const uint64_t &x, const uint64_t &y) {

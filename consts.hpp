@@ -1,0 +1,1 @@
+static constexpr eosio::name _me = "partners"_n;
