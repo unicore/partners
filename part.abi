@@ -1,0 +1,128 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT ",
+    "version": "eosio::abi/1.1",
+    "types": [],
+    "structs": [
+        {
+            "name": "del",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "partners",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "referer",
+                    "type": "name"
+                },
+                {
+                    "name": "nickname",
+                    "type": "string"
+                },
+                {
+                    "name": "nickhash",
+                    "type": "checksum256"
+                },
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "profupdate",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "reg",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "referer",
+                    "type": "name"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "userscount",
+            "base": "",
+            "fields": [
+                {
+                    "name": "cname",
+                    "type": "name"
+                },
+                {
+                    "name": "count",
+                    "type": "uint64"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "del",
+            "type": "del",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "profupdate",
+            "type": "profupdate",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "reg",
+            "type": "reg",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": "partners",
+            "type": "partners",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "userscount",
+            "type": "userscount",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "ricardian_clauses": [],
+    "variants": []
+}
