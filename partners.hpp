@@ -58,7 +58,7 @@ public:
 
         eosio::checksum256 bynickhash() const { return nickhash; }
         
-        EOSLIB_SERIALIZE(partners, (username)(referer)(id)(meta)(nickhash))
+        EOSLIB_SERIALIZE(partners, (username)(referer)(nickname)(nickhash)(id)(meta))
 
 
     };

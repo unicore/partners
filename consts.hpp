@@ -1,1 +1,1 @@
-static constexpr eosio::name _me = "partners"_n;
+static constexpr eosio::name _me = "part"_n;

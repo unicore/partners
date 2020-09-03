@@ -30,7 +30,7 @@ using namespace eosio;
 
 [[eosio::action]] void part::reg(eosio::name username, eosio::name referer, std::string meta) {
     
-    eosio::check(has_auth(username) || has_auth(part::_me), "missing required authority");
+    eosio::check(has_auth(username) || has_auth(_me), "missing required authority");
 
     eosio::check( is_account( username ), "User account does not exist");
     
@@ -40,7 +40,7 @@ using namespace eosio;
 
     eosio::check(username != referer, "You cant set the referer yourself");
     
-    if (!has_auth(part::_me)){
+    if (!has_auth(_me)){
         eosio::check(referer.value != 0, "Registration without referer is not possible");
         eosio::check( is_account( referer ), "Referer account does not exist");
         auto pref = refs.find(referer.value);
@@ -75,7 +75,7 @@ using namespace eosio;
             r.meta = meta;
         });
     } else {
-        require_auth(part::_me); //only registrator can change referer
+        require_auth(_me); //only registrator can change referer
 
         refs.modify(ref, _me, [&](auto &r){
             r.referer = referer;
@@ -85,7 +85,7 @@ using namespace eosio;
 
 
 [[eosio::action]] void part::del(eosio::name username){
-    require_auth(part::_me);
+    require_auth(_me);
     partners_index refs(_me, _me.value);
     auto u = refs.find(username.value);
     refs.erase(u);
@@ -104,7 +104,7 @@ extern "C" {
    
    /// The apply method implements the dispatch of events to this contract
    void apply( uint64_t receiver, uint64_t code, uint64_t action ) {
-        if (code == part::_me.value) {
+        if (code == _me.value) {
           if (action == "reg"_n.value){
             execute_action(name(receiver), name(code), &part::reg);
           }  else if (action == "del"_n.value){
@@ -124,7 +124,7 @@ extern "C" {
 
             auto op = eosio::unpack_action_data<transfer>();
 
-            if (op.to == part::_me){
+            if (op.to == _me){
               //Do the stuff
             }
           }
