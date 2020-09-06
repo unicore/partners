@@ -92,11 +92,12 @@ using namespace eosio;
     partners_index refs(_me, _me.value);
     auto u = refs.find(username.value);
     refs.erase(u);
-    userscount_index usercounts(_me, _me.value);
-    auto usercount = usercounts.find("registered"_n.value);
-    usercounts.modify(usercount, _me, [&](auto &u){
-        u.count = u.count - 1;
-    });
+    
+    // userscount_index usercounts(_me, _me.value);
+    // auto usercount = usercounts.find("registered"_n.value);
+    // usercounts.modify(usercount, _me, [&](auto &u){
+    //     u.count = u.count - 1;
+    // });
 
 }
 
