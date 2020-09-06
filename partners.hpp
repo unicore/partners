@@ -50,6 +50,7 @@ public:
         eosio::checksum256 nickhash;
         
         uint64_t id;
+        uint64_t cashback = 0;
         std::string meta;
         
         uint64_t primary_key() const{return username.value;}
@@ -58,7 +59,7 @@ public:
 
         eosio::checksum256 bynickhash() const { return nickhash; }
         
-        EOSLIB_SERIALIZE(partners, (username)(referer)(nickname)(nickhash)(id)(meta))
+        EOSLIB_SERIALIZE(partners, (username)(referer)(nickname)(nickhash)(id)(cashback)(meta))
 
 
     };
