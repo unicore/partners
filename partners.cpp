@@ -45,7 +45,11 @@ using namespace eosio;
         eosio::check( is_account( referer ), "Referer account does not exist");
         auto pref = refs.find(referer.value);
         eosio::check(pref != refs.end(), "Referer is not registered in the core");    
-    } 
+    } else {
+        if (referer.value != 0){
+            eosio::check( is_account( referer ), "Referer account does not exist");
+        }
+    }
 
     
     userscount_index usercounts(_me, _me.value);
