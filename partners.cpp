@@ -34,7 +34,7 @@ using namespace eosio;
 
     eosio::check( is_account( username ), "User account does not exist");
     
-     
+    eosio::name payer =  has_auth(username) ? username : _me;
     partners_index refs(_me, _me.value);
     auto ref = refs.find(username.value);
 
@@ -60,7 +60,7 @@ using namespace eosio;
     
     if (ref == refs.end()){
         if (usercount == usercounts.end()){
-            usercounts.emplace(_me, [&](auto &u){
+            usercounts.emplace(payer, [&](auto &u){
                 u.cname = "registered"_n;
                 u.count = count;
             });
@@ -71,7 +71,7 @@ using namespace eosio;
             });
         };
 
-        refs.emplace(_me, [&](auto &r){
+        refs.emplace(payer, [&](auto &r){
             r.id = count;
             r.username = username;
             r.referer = referer;
@@ -80,7 +80,7 @@ using namespace eosio;
     } else {
         require_auth(_me); //only registrator can change referer
 
-        refs.modify(ref, _me, [&](auto &r){
+        refs.modify(ref, payer, [&](auto &r){
             r.referer = referer;
         });
     }
