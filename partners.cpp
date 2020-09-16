@@ -30,17 +30,18 @@ using namespace eosio;
 
 [[eosio::action]] void part::reg(eosio::name username, eosio::name referer, std::string meta) {
     
-    eosio::check(has_auth(username) || has_auth(_me), "missing required authority");
+    eosio::check(has_auth(username) || has_auth(_me) || has_auth(_registrator), "missing required authority");
 
     eosio::check( is_account( username ), "User account does not exist");
     
-    eosio::name payer =  has_auth(username) ? username : _me;
+    eosio::name payer =  has_auth(username) ? username : (has_auth(_registrator) ? _registrator : _me) ;
+   
     partners_index refs(_me, _me.value);
     auto ref = refs.find(username.value);
 
     eosio::check(username != referer, "You cant set the referer yourself");
     
-    if (!has_auth(_me)){
+    if (has_auth(username)){
         eosio::check(referer.value != 0, "Registration without referer is not possible");
         eosio::check( is_account( referer ), "Referer account does not exist");
         auto pref = refs.find(referer.value);

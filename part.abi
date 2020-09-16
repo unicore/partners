@@ -38,6 +38,10 @@
                     "type": "uint64"
                 },
                 {
+                    "name": "cashback",
+                    "type": "uint64"
+                },
+                {
                     "name": "meta",
                     "type": "string"
                 }
