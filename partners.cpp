@@ -67,7 +67,7 @@ using namespace eosio;
             });
         } else {
             count =  usercount -> count + 1;
-            usercounts.modify(usercount, _me, [&](auto &u){
+            usercounts.modify(usercount, payer, [&](auto &u){
                 u.count = count;
             });
         };
@@ -79,7 +79,7 @@ using namespace eosio;
             r.meta = meta;
         });
     } else {
-        require_auth(_me); //only registrator can change referer
+        eosio::check(!has_auth(username), "only registrator can change referer"); //only registrator can change referer
 
         refs.modify(ref, payer, [&](auto &r){
             r.referer = referer;
