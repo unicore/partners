@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.3" xml:lang="en-US">
+  <compound refid="structpart_1_1headmans" kind="struct"><name>part::headmans</name>
+    <member refid="structpart_1_1headmans_1a0ecd6036d347e98899fd246c0876ffe7" kind="variable"><name>id</name></member>
+    <member refid="structpart_1_1headmans_1ab5b8bf67adf5f2622ae4e5346f67102d" kind="variable"><name>username</name></member>
+    <member refid="structpart_1_1headmans_1a73856011ddcde491dba71b3fb1c18579" kind="variable"><name>meta</name></member>
+    <member refid="structpart_1_1headmans_1ae1cb0eb4db5f9a38c2c6f48773afa62f" kind="function"><name>primary_key</name></member>
+    <member refid="structpart_1_1headmans_1a98bec8c63e5d59156531319914d49995" kind="function"><name>byusername</name></member>
+  </compound>
+  <compound refid="classpart" kind="class"><name>part</name>
+    <member refid="group__public__consts_1ga8ed91e8005e0a1cf5690f7270eaf8143" kind="variable"><name>_me</name></member>
+    <member refid="group__public__consts_1ga382f8b1258c16e8a24948e4f2a0fe784" kind="variable"><name>_registrator</name></member>
+    <member refid="classpart_1a229e918fb98aef4f351b148e89c87b22" kind="typedef"><name>partners_index</name></member>
+    <member refid="classpart_1a6f0233bf5de23a63e591db37dd2eed8c" kind="typedef"><name>partners2_index</name></member>
+    <member refid="classpart_1a25f2ac1e6538f22c8916d616cc4d946e" kind="typedef"><name>headmans_index</name></member>
+    <member refid="classpart_1ad79c8ccb849d4286c1c61a1044b50e1c" kind="function"><name>part</name></member>
+    <member refid="group__public__actions_1ga4aea668ad5cc7c9a1807720dd82b4954" kind="function"><name>reg</name></member>
+    <member refid="group__public__actions_1ga8e480d1472bf31d81ab9d4aae65ff6c4" kind="function"><name>del</name></member>
+    <member refid="group__public__actions_1ga63280f56d84f0ce3508ee72687f3bef5" kind="function"><name>profupdate</name></member>
+    <member refid="group__public__actions_1ga11d1763f1e8c316d2861e1c8eb05a82f" kind="function"><name>setstatus</name></member>
+    <member refid="classpart_1a69fc58db496b5406454861dc454efcaa" kind="function"><name>apply</name></member>
+    <member refid="classpart_1a50252988b18d52600e0cbc17fd16946f" kind="function"><name>hashit</name></member>
+    <member refid="classpart_1af693b8dc287ff54aedb310d05a28b956" kind="function"><name>get_random_headman</name></member>
+    <member refid="classpart_1acdbd750b4c4fde916abf28031eec8cb7" kind="function"><name>combine_ids</name></member>
+  </compound>
+  <compound refid="structpart_1_1partners" kind="struct"><name>part::partners</name>
+    <member refid="structpart_1_1partners_1ad00f3f3db16a189e99d9980b3092a4e5" kind="variable"><name>username</name></member>
+    <member refid="structpart_1_1partners_1a32b73e897a3e94f9b17a27112579173a" kind="variable"><name>referer</name></member>
+    <member refid="structpart_1_1partners_1a5fe378be48a0fdfda49af64b154bcb7f" kind="variable"><name>nickname</name></member>
+    <member refid="structpart_1_1partners_1acb347a7deb09c44d83f9d913f31e2ac1" kind="variable"><name>nickhash</name></member>
+    <member refid="structpart_1_1partners_1a8751934fbaea53b3daf92eee1890a91c" kind="variable"><name>id</name></member>
+    <member refid="structpart_1_1partners_1a0f8eb4c666ae9955d330d4dff68694bf" kind="variable"><name>cashback</name></member>
+    <member refid="structpart_1_1partners_1afbef5335dd07276072645ecd0da34e8f" kind="variable"><name>meta</name></member>
+    <member refid="structpart_1_1partners_1a12c01e8735aa43e80c8a93ed675c1fba" kind="function"><name>primary_key</name></member>
+    <member refid="structpart_1_1partners_1ae8d7d4a3dedb411bd7f1c2d97f680f30" kind="function"><name>byreferer</name></member>
+    <member refid="structpart_1_1partners_1a0665daf3a872b17fb7a738ebd61d6f53" kind="function"><name>byid</name></member>
+    <member refid="structpart_1_1partners_1a92f0e74398a1c0d8ea2f4a003aeba285" kind="function"><name>bynickhash</name></member>
+  </compound>
+  <compound refid="structpart_1_1partners2" kind="struct"><name>part::partners2</name>
+    <member refid="structpart_1_1partners2_1acb6b5f9d8cdab0d623b81567d58f17f8" kind="variable"><name>username</name></member>
+    <member refid="structpart_1_1partners2_1aedecb1f25e36945d2b3d32f26e1418b5" kind="variable"><name>referer</name></member>
+    <member refid="structpart_1_1partners2_1adfbae059215d4f7f3f4b32d7be273ba6" kind="variable"><name>nickname</name></member>
+    <member refid="structpart_1_1partners2_1a812a33eb7d44a8f738a31f21574d785b" kind="variable"><name>nickhash</name></member>
+    <member refid="structpart_1_1partners2_1a90908690c18e8bc3c24c31d5e09f391f" kind="variable"><name>id</name></member>
+    <member refid="structpart_1_1partners2_1a2a5bff940e033de04448e7317d78905f" kind="variable"><name>cashback</name></member>
+    <member refid="structpart_1_1partners2_1afcadacdd46edd7c8604534a6a0e69e5f" kind="variable"><name>status</name></member>
+    <member refid="structpart_1_1partners2_1ae3aa04e2bb4b71089183d96f820dacd1" kind="variable"><name>meta</name></member>
+    <member refid="structpart_1_1partners2_1a44b7dc91f81e60031672ee3ad19b2b83" kind="function"><name>primary_key</name></member>
+    <member refid="structpart_1_1partners2_1a219e90558bd32a59e0c27df4d6f7127f" kind="function"><name>byreferer</name></member>
+    <member refid="structpart_1_1partners2_1aa06674557b18defadece17dab6e70894" kind="function"><name>byid</name></member>
+    <member refid="structpart_1_1partners2_1ab9116c94723fc6e103efd644350298cd" kind="function"><name>bynickhash</name></member>
+    <member refid="structpart_1_1partners2_1a2d0370c6a4d0e82e704ae27bb008a33c" kind="function"><name>bystatus</name></member>
+  </compound>
+  <compound refid="namespaceeosio" kind="namespace"><name>eosio</name>
+  </compound>
+  <compound refid="consts_8hpp" kind="file"><name>consts.hpp</name>
+  </compound>
+  <compound refid="partners_8cpp" kind="file"><name>partners.cpp</name>
+    <member refid="partners_8cpp_1a569d3d0ca7b56fb8c580faaa3d73179a" kind="function"><name>apply</name></member>
+  </compound>
+  <compound refid="partners_8hpp" kind="file"><name>partners.hpp</name>
+  </compound>
+  <compound refid="_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="group__public__consts" kind="group"><name>public_consts</name>
+    <member refid="group__public__consts_1ga8ed91e8005e0a1cf5690f7270eaf8143" kind="variable"><name>_me</name></member>
+    <member refid="group__public__consts_1ga382f8b1258c16e8a24948e4f2a0fe784" kind="variable"><name>_registrator</name></member>
+  </compound>
+  <compound refid="group__public__actions" kind="group"><name>public_actions</name>
+    <member refid="group__public__actions_1ga63280f56d84f0ce3508ee72687f3bef5" kind="function"><name>profupdate</name></member>
+    <member refid="group__public__actions_1ga11d1763f1e8c316d2861e1c8eb05a82f" kind="function"><name>setstatus</name></member>
+    <member refid="group__public__actions_1ga4aea668ad5cc7c9a1807720dd82b4954" kind="function"><name>reg</name></member>
+    <member refid="group__public__actions_1ga8e480d1472bf31d81ab9d4aae65ff6c4" kind="function"><name>del</name></member>
+  </compound>
+  <compound refid="group__public__tables" kind="group"><name>public_tables</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

@@ -9,6 +9,9 @@
 
 
 // #define isDebug = TRUE
+/**
+ * @brief      Начните ознакомление здесь.
+ */
 class [[eosio::contract]] part : public eosio::contract {
 
 public:
@@ -22,47 +25,25 @@ public:
     [[eosio::action]] void setstatus(eosio::name username, eosio::name status);
 
     static eosio::name get_random_headman();
-    static uint64_t get_head_count();
-    static void upcounts(eosio::name username, uint64_t level);
-
-
+    
     void apply(uint64_t receiver, uint64_t code, uint64_t action);
-    
-    
-    
-        
     
     static uint128_t combine_ids(const uint64_t &x, const uint64_t &y) {
         return (uint128_t{x} << 64) | y;
     };
 
 
-     struct [[eosio::table]] userscount
-     {
-         eosio::name cname = "registered"_n;
-         uint64_t count;
-         
-         uint64_t primary_key() const {return cname.value;}
+    /**
+    * @ingroup public_consts 
+    * @{ 
+    */
 
-         EOSLIB_SERIALIZE(userscount, (cname)(count))
-     }; 
+    static constexpr eosio::name _me = "part"_n;              /*!< собственное имя аккаунта контракта */
+    static constexpr eosio::name _registrator = "registrator"_n;  /*!< аккаунт контракта регистратора */
 
-    typedef eosio::multi_index<"userscount"_n, userscount> userscount_index;
-
-
-     struct [[eosio::table]] userscount2
-     {
-        uint64_t level;
-        uint64_t count;
-         
-        uint64_t primary_key() const {return level;}
-        
-        
-        EOSLIB_SERIALIZE(userscount2, (level)(count))
-     }; 
-
-    typedef eosio::multi_index<"userscount2"_n, userscount2> userscount2_index;
-
+    /**
+    * @}
+    */
 
     eosio::checksum256 hashit(std::string str) const
       {
@@ -70,22 +51,23 @@ public:
       }
         
 
+    //таблица устарела и не используется
     struct [[eosio::table]] partners {
-        eosio::name username;
-        eosio::name referer;
-        std::string nickname;
-        eosio::checksum256 nickhash;
+        eosio::name username; 
+        eosio::name referer;  
+        std::string nickname; 
+        eosio::checksum256 nickhash; 
         
-        uint64_t id;
-        uint64_t cashback = 0;
+        uint64_t id;            
+        uint64_t cashback = 0; 
         
-        std::string meta;
+        std::string meta; 
         
-        uint64_t primary_key() const{return username.value;}
-        uint64_t byreferer() const{return referer.value;}
-        uint64_t byid() const {return id;}
+        uint64_t primary_key() const{return username.value;} 
+        uint64_t byreferer() const{return referer.value;} 
+        uint64_t byid() const {return id;}  
 
-        eosio::checksum256 bynickhash() const { return nickhash; }
+        eosio::checksum256 bynickhash() const { return nickhash; } 
         
         EOSLIB_SERIALIZE(partners, (username)(referer)(nickname)(nickhash)(id)(cashback)(meta))
 
@@ -99,26 +81,33 @@ public:
     > partners_index;
 
 
+    /**
+     * @brief      Таблица хранения глобальной сети партнёров
+     * @ingroup public_tables
+     * @contract _me
+     * @scope _me
+     * @table partners
+     * @details Таблица хранит реферальные связи партнёров, их профили и глобальные статусы.
+     */
     struct [[eosio::table]] partners2 {
-        eosio::name username;
-        eosio::name referer;
-        std::string nickname;
-        eosio::checksum256 nickhash;
+        eosio::name username; /*!< имя аккаунта пользователя */
+        eosio::name referer; /*!< имя аккаунта пользователя, совершившего приглашение */
+        std::string nickname; /*!< строковый никнейм пользователя */
+        eosio::checksum256 nickhash; /*!< хэш, вычисленный из строкового никнейма для быстрого поиска */
         
-        uint64_t id;
-        uint64_t cashback;
+        uint64_t id;    /*!< идентификатор численного номера регистрации */
+        uint64_t cashback; /*!< параметр кэшбэка в %, используемый для возврата части собственных средств на генерирующего партнёра */
         
-        eosio::name status;
+        eosio::name status; /*!< особый глобальный статус партнёра */
         
-        std::string meta;
+        std::string meta; /*!< строковый json-объект, хранящий профиль пользователя */
         
-        uint64_t primary_key() const{return username.value;}
-        uint64_t byreferer() const{return referer.value;}
-        uint64_t byid() const {return id;}
-        uint64_t bystatus() const {return status.value;}
+        uint64_t primary_key() const{return username.value;}        /*!< return username - primary_key */
+        uint64_t byreferer() const{return referer.value;}           /*!< return referer - secondary_key 2 */
+        uint64_t byid() const {return id;}                          /*!< return id - secondary_key 3 */
+        eosio::checksum256 bynickhash() const { return nickhash; }  /*!< return nickhash - secondary_key 4 */
+        uint64_t bystatus() const {return status.value;}            /*!< return status - secondary_key 5 */
 
-        eosio::checksum256 bynickhash() const { return nickhash; }
-        
         EOSLIB_SERIALIZE(partners2, (username)(referer)(nickname)(nickhash)(id)(cashback)(status)(meta))
 
 
@@ -132,14 +121,22 @@ public:
     > partners2_index;
 
 
-
+    /**
+     * @brief      Таблица лидеров
+     * @ingroup public_tables
+     * @scope _me
+     * @table _me
+     * @contract _me
+     * @details Таблица хранит лидеров, которые получают свободные регистрации из системы в случайном порядке. 
+     * Лидер получит нового партнёра, если он осуществляет регистрацию методом reg без указания реферальной связи.
+     */
     struct [[eosio::table]] headmans {
-        uint64_t id;
-        eosio::name username;
-        std::string meta;
+        uint64_t id;              /*!< числовой идентификатор записи */
+        eosio::name username;     /*!< имя акканта лидера */
+        std::string meta;         /*!< мета-данные лидера */
 
-        uint64_t primary_key() const{return id;}
-        uint64_t byusername() const {return username.value;}
+        uint64_t primary_key() const{return id;}    /*!< return id - primary_key */
+        uint64_t byusername() const {return username.value;} /*!< return username - secondary_key 2 */
 
         EOSLIB_SERIALIZE(headmans, (id)(username)(meta))
     };

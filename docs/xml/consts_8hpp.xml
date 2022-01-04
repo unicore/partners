@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="consts_8hpp" kind="file" language="C++">
+    <compoundname>consts.hpp</compoundname>
+    <includedby refid="partners_8hpp" local="yes">partners.hpp</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>consts.hpp</label>
+        <link refid="consts_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>partners.hpp</label>
+        <link refid="partners_8hpp_source"/>
+      </node>
+    </invincdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+    </programlisting>
+    <location file="consts.hpp"/>
+  </compounddef>
+</doxygen>

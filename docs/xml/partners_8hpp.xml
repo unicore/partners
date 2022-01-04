@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="partners_8hpp" kind="file" language="C++">
+    <compoundname>partners.hpp</compoundname>
+    <includes local="no">eosio/eosio.hpp</includes>
+    <includes local="no">eosio/asset.hpp</includes>
+    <includes local="no">eosio/system.hpp</includes>
+    <includes local="no">eosio/time.hpp</includes>
+    <includes local="no">eosio/multi_index.hpp</includes>
+    <includes local="no">eosio/contract.hpp</includes>
+    <includes local="no">eosio/crypto.hpp</includes>
+    <includes refid="consts_8hpp" local="yes">consts.hpp</includes>
+    <includedby refid="partners_8cpp" local="yes">partners.cpp</includedby>
+    <incdepgraph>
+      <node id="9">
+        <label>consts.hpp</label>
+        <link refid="consts_8hpp_source"/>
+      </node>
+      <node id="1">
+        <label>partners.hpp</label>
+        <link refid="partners_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>eosio/asset.hpp</label>
+      </node>
+      <node id="7">
+        <label>eosio/contract.hpp</label>
+      </node>
+      <node id="8">
+        <label>eosio/crypto.hpp</label>
+      </node>
+      <node id="2">
+        <label>eosio/eosio.hpp</label>
+      </node>
+      <node id="6">
+        <label>eosio/multi_index.hpp</label>
+      </node>
+      <node id="4">
+        <label>eosio/system.hpp</label>
+      </node>
+      <node id="5">
+        <label>eosio/time.hpp</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classpart" prot="public">part</innerclass>
+    <innerclass refid="structpart_1_1partners" prot="public">part::partners</innerclass>
+    <innerclass refid="structpart_1_1partners2" prot="public">part::partners2</innerclass>
+    <innerclass refid="structpart_1_1headmans" prot="public">part::headmans</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;eosio/eosio.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/asset.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/system.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/time.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/multi_index.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/contract.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;eosio/crypto.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;consts.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#define<sp/>isDebug<sp/>=<sp/>TRUE</highlight></codeline>
+<codeline lineno="15" refid="classpart" refkind="compound"><highlight class="comment"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">[[eosio::contract]]<sp/><ref refid="classpart" kindref="compound">part</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>eosio::contract<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classpart" kindref="compound">part</ref>(<sp/>eosio::name<sp/>receiver,<sp/>eosio::name<sp/>code,<sp/>eosio::datastream&lt;const<sp/>char*&gt;<sp/>ds<sp/>):<sp/>eosio::contract(receiver,<sp/>code,<sp/>ds)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>reg(eosio::name<sp/>username,<sp/>eosio::name<sp/>referer,<sp/>std::string<sp/>meta);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>del(eosio::name<sp/>username);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>profupdate(eosio::name<sp/>username,<sp/>std::string<sp/>meta);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>[[eosio::action]]<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setstatus(eosio::name<sp/>username,<sp/>eosio::name<sp/>status);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>eosio::name<sp/>get_random_headman();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>apply(uint64_t<sp/>receiver,<sp/>uint64_t<sp/>code,<sp/>uint64_t<sp/>action);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>uint128_t<sp/>combine_ids(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint64_t<sp/>&amp;x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint64_t<sp/>&amp;y)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(uint128_t{x}<sp/>&lt;&lt;<sp/>64)<sp/>|<sp/>y;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="group__public__consts_1ga8ed91e8005e0a1cf5690f7270eaf8143" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/>_me<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;part&quot;</highlight><highlight class="normal">_n;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="42" refid="group__public__consts_1ga382f8b1258c16e8a24948e4f2a0fe784" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>eosio::name<sp/>_registrator<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;registrator&quot;</highlight><highlight class="normal">_n;<sp/><sp/></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>eosio::checksum256<sp/>hashit(std::string<sp/>str)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="49"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>eosio::sha256(</highlight><highlight class="keyword">const_cast&lt;</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(str.c_str()),<sp/>str.size());</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//таблица<sp/>устарела<sp/>и<sp/>не<sp/>используется</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="structpart_1_1partners" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table]]<sp/><ref refid="structpart_1_1partners" kindref="compound">partners</ref><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>username;<sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/>referer;<sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>nickname;<sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::checksum256<sp/>nickhash;<sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>id;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>cashback<sp/>=<sp/>0;<sp/></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>meta;<sp/></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>primary_key()</highlight><highlight class="keyword"><sp/>const</highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;}<sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>byreferer()</highlight><highlight class="keyword"><sp/>const</highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>referer.value;}<sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>byid()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;}<sp/><sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::checksum256<sp/>bynickhash()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nickhash;<sp/>}<sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSLIB_SERIALIZE(<ref refid="structpart_1_1partners" kindref="compound">partners</ref>,<sp/>(username)(referer)(nickname)(nickhash)(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)(cashback)(meta))</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;partners&quot;</highlight><highlight class="normal">_n,<sp/><ref refid="structpart_1_1partners" kindref="compound">partners</ref>,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byreferer&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;partners,<sp/>uint64_t,<sp/>&amp;partners::byreferer&gt;&gt;,</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byid&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;partners,<sp/>uint64_t,<sp/>&amp;partners::byid&gt;&gt;,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bynickhash&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;partners,<sp/>eosio::checksum256,<sp/>&amp;partners::bynickhash&gt;&gt;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>partners_index;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="structpart_1_1partners2" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table]]<sp/><ref refid="structpart_1_1partners2" kindref="compound">partners2</ref><sp/>{</highlight></codeline>
+<codeline lineno="93" refid="structpart_1_1partners2_1acb6b5f9d8cdab0d623b81567d58f17f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structpart_1_1partners2_1acb6b5f9d8cdab0d623b81567d58f17f8" kindref="member">username</ref>;<sp/></highlight></codeline>
+<codeline lineno="94" refid="structpart_1_1partners2_1aedecb1f25e36945d2b3d32f26e1418b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structpart_1_1partners2_1aedecb1f25e36945d2b3d32f26e1418b5" kindref="member">referer</ref>;<sp/></highlight></codeline>
+<codeline lineno="95" refid="structpart_1_1partners2_1adfbae059215d4f7f3f4b32d7be273ba6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structpart_1_1partners2_1adfbae059215d4f7f3f4b32d7be273ba6" kindref="member">nickname</ref>;<sp/></highlight></codeline>
+<codeline lineno="96" refid="structpart_1_1partners2_1a812a33eb7d44a8f738a31f21574d785b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::checksum256<sp/><ref refid="structpart_1_1partners2_1a812a33eb7d44a8f738a31f21574d785b" kindref="member">nickhash</ref>;<sp/></highlight></codeline>
+<codeline lineno="98" refid="structpart_1_1partners2_1a90908690c18e8bc3c24c31d5e09f391f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpart_1_1partners2_1a90908690c18e8bc3c24c31d5e09f391f" kindref="member">id</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="99" refid="structpart_1_1partners2_1a2a5bff940e033de04448e7317d78905f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpart_1_1partners2_1a2a5bff940e033de04448e7317d78905f" kindref="member">cashback</ref>;<sp/></highlight></codeline>
+<codeline lineno="101" refid="structpart_1_1partners2_1afcadacdd46edd7c8604534a6a0e69e5f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structpart_1_1partners2_1afcadacdd46edd7c8604534a6a0e69e5f" kindref="member">status</ref>;<sp/></highlight></codeline>
+<codeline lineno="103" refid="structpart_1_1partners2_1ae3aa04e2bb4b71089183d96f820dacd1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structpart_1_1partners2_1ae3aa04e2bb4b71089183d96f820dacd1" kindref="member">meta</ref>;<sp/></highlight></codeline>
+<codeline lineno="105" refid="structpart_1_1partners2_1a44b7dc91f81e60031672ee3ad19b2b83" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpart_1_1partners2_1a44b7dc91f81e60031672ee3ad19b2b83" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const</highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="106" refid="structpart_1_1partners2_1a219e90558bd32a59e0c27df4d6f7127f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpart_1_1partners2_1a219e90558bd32a59e0c27df4d6f7127f" kindref="member">byreferer</ref>()</highlight><highlight class="keyword"><sp/>const</highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>referer.value;}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="107" refid="structpart_1_1partners2_1aa06674557b18defadece17dab6e70894" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpart_1_1partners2_1aa06674557b18defadece17dab6e70894" kindref="member">byid</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="108" refid="structpart_1_1partners2_1ab9116c94723fc6e103efd644350298cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::checksum256<sp/><ref refid="structpart_1_1partners2_1ab9116c94723fc6e103efd644350298cd" kindref="member">bynickhash</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>nickhash;<sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="109" refid="structpart_1_1partners2_1a2d0370c6a4d0e82e704ae27bb008a33c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpart_1_1partners2_1a2d0370c6a4d0e82e704ae27bb008a33c" kindref="member">bystatus</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status.value;}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSLIB_SERIALIZE(<ref refid="structpart_1_1partners2" kindref="compound">partners2</ref>,<sp/>(username)(referer)(nickname)(nickhash)(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)(cashback)(status)(meta))</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;partners2&quot;</highlight><highlight class="normal">_n,<sp/>partners2,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byreferer&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;partners2,<sp/>uint64_t,<sp/>&amp;partners2::byreferer&gt;&gt;,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byid&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;partners2,<sp/>uint64_t,<sp/>&amp;partners2::byid&gt;&gt;,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bynickhash&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;partners2,<sp/>eosio::checksum256,<sp/>&amp;partners2::bynickhash&gt;&gt;,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;bystatus&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;partners2,<sp/>uint64_t,<sp/>&amp;partners2::bystatus&gt;&gt;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>partners2_index;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="structpart_1_1headmans" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">[[eosio::table]]<sp/><ref refid="structpart_1_1headmans" kindref="compound">headmans</ref><sp/>{</highlight></codeline>
+<codeline lineno="134" refid="structpart_1_1headmans_1a0ecd6036d347e98899fd246c0876ffe7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpart_1_1headmans_1a0ecd6036d347e98899fd246c0876ffe7" kindref="member">id</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="135" refid="structpart_1_1headmans_1ab5b8bf67adf5f2622ae4e5346f67102d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>eosio::name<sp/><ref refid="structpart_1_1headmans_1ab5b8bf67adf5f2622ae4e5346f67102d" kindref="member">username</ref>;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="136" refid="structpart_1_1headmans_1a73856011ddcde491dba71b3fb1c18579" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structpart_1_1headmans_1a73856011ddcde491dba71b3fb1c18579" kindref="member">meta</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="138" refid="structpart_1_1headmans_1ae1cb0eb4db5f9a38c2c6f48773afa62f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpart_1_1headmans_1ae1cb0eb4db5f9a38c2c6f48773afa62f" kindref="member">primary_key</ref>()</highlight><highlight class="keyword"><sp/>const</highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;}<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="139" refid="structpart_1_1headmans_1a98bec8c63e5d59156531319914d49995" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="structpart_1_1headmans_1a98bec8c63e5d59156531319914d49995" kindref="member">byusername</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>username.value;}<sp/></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EOSLIB_SERIALIZE(<ref refid="structpart_1_1headmans" kindref="compound">headmans</ref>,<sp/>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)(username)(meta))</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>eosio::multi_index&lt;</highlight><highlight class="stringliteral">&quot;headmans&quot;</highlight><highlight class="normal">_n,<sp/>headmans,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>eosio::indexed_by&lt;</highlight><highlight class="stringliteral">&quot;byusername&quot;</highlight><highlight class="normal">_n,<sp/>eosio::const_mem_fun&lt;headmans,<sp/>uint64_t,<sp/>&amp;headmans::byusername&gt;&gt;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>&gt;<sp/>headmans_index;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="partners.hpp"/>
+  </compounddef>
+</doxygen>

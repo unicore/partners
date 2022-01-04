@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>PART</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md_README"/><heading level="2">Стек: C/C++, eosio.cdt 1.7.0</heading>
+</para>
+<para><heading level="1">Введение</heading>
+</para>
+<para>Контракт хранит системное дерево реферальных связей, согласно которым, происходит распределение реферальных вознаграждений в каждом отдельном хосте контракта core. Кроме того, контракт содержит методы установки профиля партнёра, который может использоваться в веб-терминале.</para>
+<para><heading level="1">Компиляция</heading>
+</para>
+<para>Заменить ABSOLUTE_PATH_TO_CONTRACT на абсолютный путь к директории контракта PART. <programlisting><codeline><highlight class="normal">docker<sp/>run<sp/>--rm<sp/>--name<sp/>eosio.cdt_v1.7.0<sp/>--volume<sp/>/ABSOLUTE_PATH_TO_CONTRACT:/project<sp/>-w<sp/>/project<sp/>eostudio/eosio.cdt:v1.7.0<sp/>/bin/bash<sp/>-c<sp/>&quot;eosio-cpp<sp/>-abigen<sp/>-I<sp/>include<sp/>-R<sp/>include<sp/>-contract<sp/>part<sp/>-o<sp/>part.wasm<sp/>part.cpp&quot;<sp/>&amp;</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">Генерация документации</heading>
+</para>
+<para>Требуется Doxygen версии от 1.9.3 <programlisting><codeline><highlight class="normal">git<sp/>submodule<sp/>update<sp/>--init<sp/>--recursive</highlight></codeline>
+<codeline><highlight class="normal">doxygen</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">Установка</heading>
+</para>
+<para><programlisting><codeline><highlight class="normal">cleos<sp/>set<sp/>contract<sp/>part<sp/>ABSOLUTE_PATH_TO_CONTRACT<sp/>-p<sp/>part</highlight></codeline>
+</programlisting></para>
+<para><heading level="1">Действующие аккаунты</heading>
+</para>
+<para>me - собственное имя контракта; registrator - имя аккаунта регистратора;</para>
+<para><heading level="1">Роли</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>Реферал. Партнёр, регистрирующийся в глобальном реферальном дереве.</para>
+</listitem><listitem><para>Реферер. Партнёр, пригласивший реферала. <linebreak/>
+</para>
+</listitem><listitem><para>Лидер. Партнёр, получающий свободные регистрации рефералов от системы.</para>
+</listitem></itemizedlist>
+</para>
+<para><heading level="1">Сценарии</heading>
+</para>
+<para><heading level="3">Регистрация реферала</heading>
+</para>
+<para>Для регистрации партнёра в реферальном дереве, необходимо отправить транзакцию методом reg: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>part<sp/>&apos;[tester1,<sp/>tester2,<sp/>&quot;{}&quot;]&apos;<sp/>-p<sp/>tester1&apos;</highlight></codeline>
+</programlisting> Таким образом, реферал самостоятельно указывает своего реферера при регистрации в дереве.</para>
+<para>Получить таблицу с партнёрами можно так: <programlisting><codeline><highlight class="normal">cleos<sp/>get<sp/>table<sp/>part<sp/>part<sp/>partners2</highlight></codeline>
+</programlisting> В ответе: <programlisting><codeline><highlight class="normal">&quot;rows&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;tester1&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;referer&quot;:<sp/>&quot;tester2&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickname&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickhash&quot;:<sp/>&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id&quot;:<sp/>1,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;cashback&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;status&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;meta&quot;:<sp/>&quot;&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+</programlisting></para>
+<para><heading level="3">Изменение реферера</heading>
+</para>
+<para>Изменить установленного реферера могут контракты registrator или me. Для этого, они должны отправить транзакцию для реферала с указанием нового реферера: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>part<sp/>&apos;[tester1,<sp/>tester3,<sp/>&quot;{}&quot;]&apos;<sp/>-p<sp/>part&apos;</highlight></codeline>
+</programlisting> Тогда, после получения таблицы, мы увидим результат: <programlisting><codeline><highlight class="normal">&quot;rows&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;tester1&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;referer&quot;:<sp/>&quot;tester3&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickname&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickhash&quot;:<sp/>&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id&quot;:<sp/>1,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;cashback&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;status&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;meta&quot;:<sp/>&quot;&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+</programlisting></para>
+<para><heading level="3">Установить профиль партнёра</heading>
+</para>
+<para>Для того, чтобы установить профиль партнёра, он должен вызвать метод setprofile за своей подписью. <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>part<sp/>profupdate<sp/>&apos;[tester1,<sp/>&quot;{ican:<sp/>\&quot;\&quot;}&quot;]&apos;<sp/>-tester1</highlight></codeline>
+</programlisting> Получим таблицу, увидим результат: <programlisting><codeline><highlight class="normal">&quot;rows&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;tester1&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;referer&quot;:<sp/>&quot;tester3&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickname&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickhash&quot;:<sp/>&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id&quot;:<sp/>5,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;cashback&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;status&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;meta&quot;:<sp/>&quot;{ican:<sp/>\&quot;\&quot;}&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+</programlisting></para>
+<para><heading level="3">Создать лидера</heading>
+</para>
+<para>Создать лидера сейчас может только аккаунт контракта me. Для этого, он должен отправить транзакцию со своей подписью: <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>part<sp/>setstatus<sp/>&apos;[tester1,<sp/>headman]&apos;<sp/>-p<sp/>part</highlight></codeline>
+</programlisting> Получим таблицу, увидим результат: <programlisting><codeline><highlight class="normal">&quot;rows&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;tester1&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;referer&quot;:<sp/>&quot;tester3&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickname&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickhash&quot;:<sp/>&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id&quot;:<sp/>5,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;cashback&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;status&quot;:<sp/>&quot;headman&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;meta&quot;:<sp/>&quot;{ican:<sp/>\&quot;\&quot;}&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+</programlisting></para>
+<para><heading level="3">Получить свободную регистрацию</heading>
+</para>
+<para>Для получения свободной регистрации, потенциальный реферал указать пустое имя аккаунта реферера. Тогда, регистрация будет произведена под одного из лидеров (в случайном порядке). <programlisting><codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>part<sp/>&apos;[tester4,<sp/>&quot;&quot;,<sp/>&quot;{}&quot;]&apos;<sp/>-p<sp/>tester4</highlight></codeline>
+</programlisting> Тогда новый партнёр будет зарегистрирован под одного из действующих лидеров: <programlisting><codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;rows&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;tester4&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;referer&quot;:<sp/>&quot;tester1&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickname&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickhash&quot;:<sp/>&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id&quot;:<sp/>27,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;cashback&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;status&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;meta&quot;:<sp/>&quot;{}&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+</programlisting> <heading level="3">Установить никнейм</heading>
+</para>
+<para>Каждый пользователь может установить строковый никнейм, используя любые буквы и цифры (что ограничено в имени пользователя). Устанавливая никнейм, пользователь получает уникальный хэш его имени, что может быть использовано в веб-терминале для быстрого поиска по никнеймам.</para>
+<para><heading level="3">Документация к методам и таблицам контракта</heading>
+</para>
+<para>Документация к методам и таблицам контракта доступна в папке docs/html/index.html</para>
+<para><heading level="1">TODO</heading>
+</para>
+<para><itemizedlist>
+<listitem><para>Ввести методы установки процента кэшбэка. Контракт предусматривает возможность установки кэшбэка на структуру партнёра, генерирующего реферальное вознаграждение.</para>
+</listitem><listitem><para>Ввести метод установки никнейма и расчёта хэша. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

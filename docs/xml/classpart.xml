@@ -1,0 +1,416 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="classpart" kind="class" language="C++" prot="public">
+    <compoundname>part</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">eosio::contract</basecompoundref>
+    <includes refid="partners_8hpp" local="no">partners.hpp</includes>
+    <innerclass refid="structpart_1_1headmans" prot="public">part::headmans</innerclass>
+    <innerclass refid="structpart_1_1partners" prot="public">part::partners</innerclass>
+    <innerclass refid="structpart_1_1partners2" prot="public">part::partners2</innerclass>
+      <sectiondef kind="user-defined">
+      <memberdef kind="variable" id="group__public__consts_1ga8ed91e8005e0a1cf5690f7270eaf8143" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name part::_me</definition>
+        <argsstring></argsstring>
+        <name>_me</name>
+        <qualifiedname>part::_me</qualifiedname>
+        <initializer>= &quot;part&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>собственное имя аккаунта контракта </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="41" column="34" bodyfile="partners.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="group__public__consts_1ga382f8b1258c16e8a24948e4f2a0fe784" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr eosio::name</type>
+        <definition>constexpr eosio::name part::_registrator</definition>
+        <argsstring></argsstring>
+        <name>_registrator</name>
+        <qualifiedname>part::_registrator</qualifiedname>
+        <initializer>= &quot;registrator&quot;_n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>аккаунт контракта регистратора </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="42" column="34" bodyfile="partners.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classpart_1a229e918fb98aef4f351b148e89c87b22" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;partners&quot;_n, <ref refid="structpart_1_1partners" kindref="compound">partners</ref>, eosio::indexed_by&lt;&quot;byreferer&quot;_n, eosio::const_mem_fun&lt; <ref refid="structpart_1_1partners" kindref="compound">partners</ref>, uint64_t, &amp;partners::byreferer &gt; &gt;, eosio::indexed_by&lt;&quot;byid&quot;_n, eosio::const_mem_fun&lt; <ref refid="structpart_1_1partners" kindref="compound">partners</ref>, uint64_t, &amp;partners::byid &gt; &gt;, eosio::indexed_by&lt;&quot;bynickhash&quot;_n, eosio::const_mem_fun&lt; <ref refid="structpart_1_1partners" kindref="compound">partners</ref>, eosio::checksum256, &amp;partners::bynickhash &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;partners&quot;_n, partners, eosio::indexed_by&lt;&quot;byreferer&quot;_n, eosio::const_mem_fun&lt;partners, uint64_t, &amp;partners::byreferer&gt; &gt;, eosio::indexed_by&lt;&quot;byid&quot;_n, eosio::const_mem_fun&lt;partners, uint64_t, &amp;partners::byid&gt; &gt;, eosio::indexed_by&lt;&quot;bynickhash&quot;_n, eosio::const_mem_fun&lt;partners, eosio::checksum256, &amp;partners::bynickhash&gt; &gt; &gt; part::partners_index</definition>
+        <argsstring></argsstring>
+        <name>partners_index</name>
+        <qualifiedname>part::partners_index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="81" column="2" bodyfile="partners.hpp" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classpart_1a6f0233bf5de23a63e591db37dd2eed8c" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;partners2&quot;_n, <ref refid="structpart_1_1partners2" kindref="compound">partners2</ref>, eosio::indexed_by&lt;&quot;byreferer&quot;_n, eosio::const_mem_fun&lt; <ref refid="structpart_1_1partners2" kindref="compound">partners2</ref>, uint64_t, &amp;<ref refid="structpart_1_1partners2_1a219e90558bd32a59e0c27df4d6f7127f" kindref="member">partners2::byreferer</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;byid&quot;_n, eosio::const_mem_fun&lt; <ref refid="structpart_1_1partners2" kindref="compound">partners2</ref>, uint64_t, &amp;<ref refid="structpart_1_1partners2_1aa06674557b18defadece17dab6e70894" kindref="member">partners2::byid</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bynickhash&quot;_n, eosio::const_mem_fun&lt; <ref refid="structpart_1_1partners2" kindref="compound">partners2</ref>, eosio::checksum256, &amp;<ref refid="structpart_1_1partners2_1ab9116c94723fc6e103efd644350298cd" kindref="member">partners2::bynickhash</ref> &gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt; <ref refid="structpart_1_1partners2" kindref="compound">partners2</ref>, uint64_t, &amp;<ref refid="structpart_1_1partners2_1a2d0370c6a4d0e82e704ae27bb008a33c" kindref="member">partners2::bystatus</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;partners2&quot;_n, partners2, eosio::indexed_by&lt;&quot;byreferer&quot;_n, eosio::const_mem_fun&lt;partners2, uint64_t, &amp;partners2::byreferer&gt; &gt;, eosio::indexed_by&lt;&quot;byid&quot;_n, eosio::const_mem_fun&lt;partners2, uint64_t, &amp;partners2::byid&gt; &gt;, eosio::indexed_by&lt;&quot;bynickhash&quot;_n, eosio::const_mem_fun&lt;partners2, eosio::checksum256, &amp;partners2::bynickhash&gt; &gt;, eosio::indexed_by&lt;&quot;bystatus&quot;_n, eosio::const_mem_fun&lt;partners2, uint64_t, &amp;partners2::bystatus&gt; &gt; &gt; part::partners2_index</definition>
+        <argsstring></argsstring>
+        <name>partners2_index</name>
+        <qualifiedname>part::partners2_index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="121" column="2" bodyfile="partners.hpp" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classpart_1a25f2ac1e6538f22c8916d616cc4d946e" prot="public" static="no">
+        <type>eosio::multi_index&lt;&quot;headmans&quot;_n, <ref refid="structpart_1_1headmans" kindref="compound">headmans</ref>, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt; <ref refid="structpart_1_1headmans" kindref="compound">headmans</ref>, uint64_t, &amp;<ref refid="structpart_1_1headmans_1a98bec8c63e5d59156531319914d49995" kindref="member">headmans::byusername</ref> &gt; &gt; &gt;</type>
+        <definition>typedef eosio::multi_index&lt;&quot;headmans&quot;_n, headmans, eosio::indexed_by&lt;&quot;byusername&quot;_n, eosio::const_mem_fun&lt;headmans, uint64_t, &amp;headmans::byusername&gt; &gt; &gt; part::headmans_index</definition>
+        <argsstring></argsstring>
+        <name>headmans_index</name>
+        <qualifiedname>part::headmans_index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="147" column="2" bodyfile="partners.hpp" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classpart_1ad79c8ccb849d4286c1c61a1044b50e1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>part::part</definition>
+        <argsstring>(eosio::name receiver, eosio::name code, eosio::datastream&lt; const char * &gt; ds)</argsstring>
+        <name>part</name>
+        <qualifiedname>part::part</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>eosio::datastream&lt; const char * &gt;</type>
+          <declname>ds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="18" column="5" bodyfile="partners.hpp" bodystart="18" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga4aea668ad5cc7c9a1807720dd82b4954" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void part::reg</definition>
+        <argsstring>(eosio::name username, eosio::name referer, std::string meta)</argsstring>
+        <name>reg</name>
+        <qualifiedname>part::reg</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>referer</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Регистрация пользователя в реферальном дереве связей </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: username | _me | _registrator</title><para></para>
+</simplesect>
+Устанавливает пользователя в глобальное реферальное дерево связей. Изменить положение в дереве связей могут аккаунты _me или _registrator.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя аккаунта для регистрации </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">referer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя аккаунта партнёра, осуществившего приглашение </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>строковый JSON-объект мета-данных профиля пользователя </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="21" column="11" bodyfile="partners.cpp" bodystart="153" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga8e480d1472bf31d81ab9d4aae65ff6c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void part::del</definition>
+        <argsstring>(eosio::name username)</argsstring>
+        <name>del</name>
+        <qualifiedname>part::del</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>Метод удаления аккаунта из дерева связей </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: _me</title><para></para>
+</simplesect>
+Метод удаляет аккаунт из дерева связей. Используется только администратором контракта в исключительных случаях. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя для удаления </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="22" column="11" bodyfile="partners.cpp" bodystart="214" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga63280f56d84f0ce3508ee72687f3bef5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void part::profupdate</definition>
+        <argsstring>(eosio::name username, std::string meta)</argsstring>
+        <name>profupdate</name>
+        <qualifiedname>part::profupdate</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Метод обновления профиля </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: username </title><para></para>
+</simplesect>
+Операция обновления профиля позволяет изменить мета-данные аккаунта. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>имя аккаунта пользователя для обновления </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>строковый JSON-объект мета-данных профиля пользователя </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="23" column="11" bodyfile="partners.cpp" bodystart="28" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga11d1763f1e8c316d2861e1c8eb05a82f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void part::setstatus</definition>
+        <argsstring>(eosio::name username, eosio::name status)</argsstring>
+        <name>setstatus</name>
+        <qualifiedname>part::setstatus</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Метод установки статуса </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: _me </title><para></para>
+</simplesect>
+Метод устанавливает специальный статус лидера (headman) для партнёра. Обладая статусом headman, все свободные регистрации новых партнёров (без указания referer) устанавливаются под лидеров в случайном порядке. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>имя аккаунта пользователя для обновления статуса </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>имя статуса партнёра (сейчас доступен только headman) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="25" column="11" bodyfile="partners.cpp" bodystart="48" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classpart_1a69fc58db496b5406454861dc454efcaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void part::apply</definition>
+        <argsstring>(uint64_t receiver, uint64_t code, uint64_t action)</argsstring>
+        <name>apply</name>
+        <qualifiedname>part::apply</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>receiver</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>code</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="29" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classpart_1a50252988b18d52600e0cbc17fd16946f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>eosio::checksum256</type>
+        <definition>eosio::checksum256 part::hashit</definition>
+        <argsstring>(std::string str) const</argsstring>
+        <name>hashit</name>
+        <qualifiedname>part::hashit</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="48" column="24" bodyfile="partners.hpp" bodystart="48" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classpart_1af693b8dc287ff54aedb310d05a28b956" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>eosio::name</type>
+        <definition>eosio::name part::get_random_headman</definition>
+        <argsstring>()</argsstring>
+        <name>get_random_headman</name>
+        <qualifiedname>part::get_random_headman</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="27" column="24" bodyfile="partners.cpp" bodystart="89" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classpart_1acdbd750b4c4fde916abf28031eec8cb7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint128_t</type>
+        <definition>static uint128_t part::combine_ids</definition>
+        <argsstring>(const uint64_t &amp;x, const uint64_t &amp;y)</argsstring>
+        <name>combine_ids</name>
+        <qualifiedname>part::combine_ids</qualifiedname>
+        <param>
+          <type>const uint64_t &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const uint64_t &amp;</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="31" column="22" bodyfile="partners.hpp" bodystart="31" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Начните ознакомление здесь. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>part</label>
+        <link refid="classpart"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>eosio::contract</label>
+      </node>
+      <node id="1">
+        <label>part</label>
+        <link refid="classpart"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="partners.hpp" line="15" column="1" bodyfile="partners.hpp" bodystart="15" bodyend="150"/>
+    <listofallmembers>
+      <member refid="group__public__consts_1ga8ed91e8005e0a1cf5690f7270eaf8143" prot="public" virt="non-virtual"><scope>part</scope><name>_me</name></member>
+      <member refid="group__public__consts_1ga382f8b1258c16e8a24948e4f2a0fe784" prot="public" virt="non-virtual"><scope>part</scope><name>_registrator</name></member>
+      <member refid="classpart_1a69fc58db496b5406454861dc454efcaa" prot="public" virt="non-virtual"><scope>part</scope><name>apply</name></member>
+      <member refid="classpart_1acdbd750b4c4fde916abf28031eec8cb7" prot="public" virt="non-virtual"><scope>part</scope><name>combine_ids</name></member>
+      <member refid="group__public__actions_1ga8e480d1472bf31d81ab9d4aae65ff6c4" prot="public" virt="non-virtual"><scope>part</scope><name>del</name></member>
+      <member refid="classpart_1af693b8dc287ff54aedb310d05a28b956" prot="public" virt="non-virtual"><scope>part</scope><name>get_random_headman</name></member>
+      <member refid="classpart_1a50252988b18d52600e0cbc17fd16946f" prot="public" virt="non-virtual"><scope>part</scope><name>hashit</name></member>
+      <member refid="classpart_1a25f2ac1e6538f22c8916d616cc4d946e" prot="public" virt="non-virtual"><scope>part</scope><name>headmans_index</name></member>
+      <member refid="classpart_1ad79c8ccb849d4286c1c61a1044b50e1c" prot="public" virt="non-virtual"><scope>part</scope><name>part</name></member>
+      <member refid="classpart_1a6f0233bf5de23a63e591db37dd2eed8c" prot="public" virt="non-virtual"><scope>part</scope><name>partners2_index</name></member>
+      <member refid="classpart_1a229e918fb98aef4f351b148e89c87b22" prot="public" virt="non-virtual"><scope>part</scope><name>partners_index</name></member>
+      <member refid="group__public__actions_1ga63280f56d84f0ce3508ee72687f3bef5" prot="public" virt="non-virtual"><scope>part</scope><name>profupdate</name></member>
+      <member refid="group__public__actions_1ga4aea668ad5cc7c9a1807720dd82b4954" prot="public" virt="non-virtual"><scope>part</scope><name>reg</name></member>
+      <member refid="group__public__actions_1ga11d1763f1e8c316d2861e1c8eb05a82f" prot="public" virt="non-virtual"><scope>part</scope><name>setstatus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

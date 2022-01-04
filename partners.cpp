@@ -2,11 +2,28 @@
 #include <eosio/transaction.hpp>
 
 using namespace eosio;
+/**
+\defgroup public_consts CONSTS
+\brief Константы контракта
+*/
 
-    /**
+/**
+\defgroup public_actions ACTIONS
+\brief Методы действий контракта
+*/
+
+/**
+\defgroup public_tables TABLES
+\brief Структуры таблиц контракта
+*/
+
+   /**
    * @brief      Метод обновления профиля
-   * Операция обновления профиля позволяет изменить мета-данные аккаунта. 
-   * @param[in]  op    The operation
+   * @ingroup public_actions
+   * @auth username 
+   * @details Операция обновления профиля позволяет изменить мета-данные аккаунта. 
+   * @param[in]  username  имя аккаунта пользователя для обновления
+   * @param[in]  meta  строковый JSON-объект мета-данных профиля пользователя
    */
   [[eosio::action]] void part::profupdate(eosio::name username, std::string meta){
     require_auth(username);
@@ -19,6 +36,15 @@ using namespace eosio;
     });
   }
 
+/**
+   * @brief      Метод установки статуса
+   * @ingroup public_actions
+   * @auth _me 
+   * @details Метод устанавливает специальный статус лидера (headman) для партнёра. 
+   * Обладая статусом headman, все свободные регистрации новых партнёров (без указания referer) устанавливаются под лидеров в случайном порядке. 
+   * @param[in]  username  имя аккаунта пользователя для обновления статуса
+   * @param[in]  status  имя статуса партнёра (сейчас доступен только headman)
+   */
 [[eosio::action]] void part::setstatus(eosio::name username, eosio::name status) {
     require_auth(_me);
 
@@ -113,12 +139,15 @@ using namespace eosio;
 
 
 /**
- * @brief      Регистрация пользователя в системе. 
- * Характеризуется созданием профиля с ссылкой на приглашающий аккаунт. Приглашающий аккаунт используется в качестве связи для вычисления партнерских структур различного профиля.
+ * @brief      Регистрация пользователя в реферальном дереве связей
+ * @ingroup public_actions
+ * @auth username | _me | _registrator
+ * @details Устанавливает пользователя в глобальное реферальное дерево связей. Изменить положение в дереве связей могут аккаунты _me или _registrator.
  * 
- * TODO ввести порядковые номера  
  *
- * @param[in]  op    The operation
+ * @param[in]  username  Имя аккаунта для регистрации
+ * @param[in]  referer  Имя аккаунта партнёра, осуществившего приглашение
+ * @param[in]  meta  строковый JSON-объект мета-данных профиля пользователя
  */
 
 [[eosio::action]] void part::reg(eosio::name username, eosio::name referer, std::string meta) {
@@ -156,8 +185,7 @@ using namespace eosio;
         if (byid_txn != byid.rend()){
             id = byid_txn -> id + 1;
         };
-        print("set_id: ", id);
-
+        
         refs.emplace(payer, [&](auto &r){
             r.id = id;
             r.username = username;
@@ -175,19 +203,19 @@ using namespace eosio;
 
 };
 
-
+/**
+ * @brief      Метод удаления аккаунта из дерева связей
+ * @ingroup public_actions
+ * @auth _me
+ * @details Метод удаляет аккаунт из дерева связей. Используется только администратором контракта в исключительных случаях. 
+ * @param[in]  username  Имя пользователя для удаления
+ * 
+ */
 [[eosio::action]] void part::del(eosio::name username){
     require_auth(_me);
     partners2_index refs(_me, _me.value);
     auto u = refs.find(username.value);
     refs.erase(u);
-    
-    // userscount_index usercounts(_me, _me.value);
-    // auto usercount = usercounts.find("registered"_n.value);
-    // usercounts.modify(usercount, _me, [&](auto &u){
-    //     u.count = u.count - 1;
-    // });
-
 }
 
 
@@ -197,7 +225,7 @@ extern "C" {
    
    /// The apply method implements the dispatch of events to this contract
    void apply( uint64_t receiver, uint64_t code, uint64_t action ) {
-        if (code == _me.value) {
+        if (code == part::_me.value) {
           if (action == "reg"_n.value){
             execute_action(name(receiver), name(code), &part::reg);
           }  else if (action == "del"_n.value){
@@ -219,7 +247,7 @@ extern "C" {
 
             auto op = eosio::unpack_action_data<transfer>();
 
-            if (op.to == _me){
+            if (op.to == part::_me){
               //Do the stuff
             }
           }

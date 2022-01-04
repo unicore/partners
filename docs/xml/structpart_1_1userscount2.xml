@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="structpart_1_1userscount2" kind="struct" language="C++" prot="public">
+    <compoundname>part::userscount2</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structpart_1_1userscount2_1ad9eebf23732a99bbbde44395cea64fbf" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t part::userscount2::level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <qualifiedname>part::userscount2::level</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="55" column="18" bodyfile="partners.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structpart_1_1userscount2_1ae088584bf535e9a154c7c1f41a68f934" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t part::userscount2::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <qualifiedname>part::userscount2::count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="56" column="18" bodyfile="partners.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structpart_1_1userscount2_1a5257d3a609ab38369f51d484aa32f369" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t part::userscount2::primary_key</definition>
+        <argsstring>() const</argsstring>
+        <name>primary_key</name>
+        <qualifiedname>part::userscount2::primary_key</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="58" column="18" bodyfile="partners.hpp" bodystart="58" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="partners.hpp" line="53" column="6" bodyfile="partners.hpp" bodystart="54" bodyend="62"/>
+    <listofallmembers>
+      <member refid="structpart_1_1userscount2_1ae088584bf535e9a154c7c1f41a68f934" prot="public" virt="non-virtual"><scope>part::userscount2</scope><name>count</name></member>
+      <member refid="structpart_1_1userscount2_1ad9eebf23732a99bbbde44395cea64fbf" prot="public" virt="non-virtual"><scope>part::userscount2</scope><name>level</name></member>
+      <member refid="structpart_1_1userscount2_1a5257d3a609ab38369f51d484aa32f369" prot="public" virt="non-virtual"><scope>part::userscount2</scope><name>primary_key</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

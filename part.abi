@@ -14,6 +14,24 @@
             ]
         },
         {
+            "name": "headmans",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
             "name": "partners",
             "base": "",
             "fields": [
@@ -48,6 +66,44 @@
             ]
         },
         {
+            "name": "partners2",
+            "base": "",
+            "fields": [
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "referer",
+                    "type": "name"
+                },
+                {
+                    "name": "nickname",
+                    "type": "string"
+                },
+                {
+                    "name": "nickhash",
+                    "type": "checksum256"
+                },
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "cashback",
+                    "type": "uint64"
+                },
+                {
+                    "name": "status",
+                    "type": "name"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
             "name": "profupdate",
             "base": "",
             "fields": [
@@ -80,16 +136,16 @@
             ]
         },
         {
-            "name": "userscount",
+            "name": "setstatus",
             "base": "",
             "fields": [
                 {
-                    "name": "cname",
+                    "name": "username",
                     "type": "name"
                 },
                 {
-                    "name": "count",
-                    "type": "uint64"
+                    "name": "status",
+                    "type": "name"
                 }
             ]
         }
@@ -109,9 +165,21 @@
             "name": "reg",
             "type": "reg",
             "ricardian_contract": ""
+        },
+        {
+            "name": "setstatus",
+            "type": "setstatus",
+            "ricardian_contract": ""
         }
     ],
     "tables": [
+        {
+            "name": "headmans",
+            "type": "headmans",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
         {
             "name": "partners",
             "type": "partners",
@@ -120,8 +188,8 @@
             "key_types": []
         },
         {
-            "name": "userscount",
-            "type": "userscount",
+            "name": "partners2",
+            "type": "partners2",
             "index_type": "i64",
             "key_names": [],
             "key_types": []

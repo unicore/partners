@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="group__public__actions" kind="group">
+    <compoundname>public_actions</compoundname>
+    <title>ACTIONS</title>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__public__actions_1ga63280f56d84f0ce3508ee72687f3bef5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void part::profupdate</definition>
+        <argsstring>(eosio::name username, std::string meta)</argsstring>
+        <name>profupdate</name>
+        <qualifiedname>part::profupdate</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Метод обновления профиля </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: username </title><para></para>
+</simplesect>
+Операция обновления профиля позволяет изменить мета-данные аккаунта. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>имя аккаунта пользователя для обновления </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>строковый JSON-объект мета-данных профиля пользователя </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="23" column="11" bodyfile="partners.cpp" bodystart="28" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga11d1763f1e8c316d2861e1c8eb05a82f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void part::setstatus</definition>
+        <argsstring>(eosio::name username, eosio::name status)</argsstring>
+        <name>setstatus</name>
+        <qualifiedname>part::setstatus</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Метод установки статуса </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: _me </title><para></para>
+</simplesect>
+Метод устанавливает специальный статус лидера (headman) для партнёра. Обладая статусом headman, все свободные регистрации новых партнёров (без указания referer) устанавливаются под лидеров в случайном порядке. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>имя аккаунта пользователя для обновления статуса </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>имя статуса партнёра (сейчас доступен только headman) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="25" column="11" bodyfile="partners.cpp" bodystart="48" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga4aea668ad5cc7c9a1807720dd82b4954" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void part::reg</definition>
+        <argsstring>(eosio::name username, eosio::name referer, std::string meta)</argsstring>
+        <name>reg</name>
+        <qualifiedname>part::reg</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <param>
+          <type>eosio::name</type>
+          <declname>referer</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>meta</declname>
+        </param>
+        <briefdescription>
+<para>Регистрация пользователя в реферальном дереве связей </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: username | _me | _registrator</title><para></para>
+</simplesect>
+Устанавливает пользователя в глобальное реферальное дерево связей. Изменить положение в дереве связей могут аккаунты _me или _registrator.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя аккаунта для регистрации </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">referer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя аккаунта партнёра, осуществившего приглашение </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">meta</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>строковый JSON-объект мета-данных профиля пользователя </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="21" column="11" bodyfile="partners.cpp" bodystart="153" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="group__public__actions_1ga8e480d1472bf31d81ab9d4aae65ff6c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void part::del</definition>
+        <argsstring>(eosio::name username)</argsstring>
+        <name>del</name>
+        <qualifiedname>part::del</qualifiedname>
+        <param>
+          <type>eosio::name</type>
+          <declname>username</declname>
+        </param>
+        <briefdescription>
+<para>Метод удаления аккаунта из дерева связей </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="par"><title>AUTH: _me</title><para></para>
+</simplesect>
+Метод удаляет аккаунт из дерева связей. Используется только администратором контракта в исключительных случаях. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">username</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Имя пользователя для удаления </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="partners.hpp" line="22" column="11" bodyfile="partners.cpp" bodystart="214" bodyend="219"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Методы действий контракта </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

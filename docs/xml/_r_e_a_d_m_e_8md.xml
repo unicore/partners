@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.3" xml:lang="en-US">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>PART</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Стек:<sp/>C/C++,<sp/>eosio.cdt<sp/>1.7.0</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Введение</highlight></codeline>
+<codeline><highlight class="normal">Контракт<sp/>хранит<sp/>системное<sp/>дерево<sp/>реферальных<sp/>связей,<sp/>согласно<sp/>которым,<sp/>происходит<sp/>распределение<sp/>реферальных<sp/>вознаграждений<sp/>в<sp/>каждом<sp/>отдельном<sp/>хосте<sp/>контракта<sp/>core.<sp/>Кроме<sp/>того,<sp/>контракт<sp/>содержит<sp/>методы<sp/>установки<sp/>профиля<sp/>партнёра,<sp/>который<sp/>может<sp/>использоваться<sp/>в<sp/>веб-терминале.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Компиляция</highlight></codeline>
+<codeline><highlight class="normal">Заменить<sp/>ABSOLUTE_PATH_TO_CONTRACT<sp/>на<sp/>абсолютный<sp/>путь<sp/>к<sp/>директории<sp/>контракта<sp/>PART.<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">docker<sp/>run<sp/>--rm<sp/>--name<sp/>eosio.cdt_v1.7.0<sp/>--volume<sp/>/ABSOLUTE_PATH_TO_CONTRACT:/project<sp/>-w<sp/>/project<sp/>eostudio/eosio.cdt:v1.7.0<sp/>/bin/bash<sp/>-c<sp/>&quot;eosio-cpp<sp/>-abigen<sp/>-I<sp/>include<sp/>-R<sp/>include<sp/>-contract<sp/>part<sp/>-o<sp/>part.wasm<sp/>part.cpp&quot;<sp/>&amp;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Генерация<sp/>документации</highlight></codeline>
+<codeline><highlight class="normal">Требуется<sp/>Doxygen<sp/>версии<sp/>от<sp/>1.9.3</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">git<sp/>submodule<sp/>update<sp/>--init<sp/>--recursive</highlight></codeline>
+<codeline><highlight class="normal">doxygen</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Установка</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>set<sp/>contract<sp/>part<sp/>ABSOLUTE_PATH_TO_CONTRACT<sp/>-p<sp/>part</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Действующие<sp/>аккаунты</highlight></codeline>
+<codeline><highlight class="normal">me<sp/>-<sp/>собственное<sp/>имя<sp/>контракта;</highlight></codeline>
+<codeline><highlight class="normal">registrator<sp/>-<sp/>имя<sp/>аккаунта<sp/>регистратора;</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Роли</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Реферал.<sp/>Партнёр,<sp/>регистрирующийся<sp/>в<sp/>глобальном<sp/>реферальном<sp/>дереве.<sp/></highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Реферер.<sp/>Партнёр,<sp/>пригласивший<sp/>реферала.<sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Лидер.<sp/>Партнёр,<sp/>получающий<sp/>свободные<sp/>регистрации<sp/>рефералов<sp/>от<sp/>системы.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>Сценарии</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Регистрация<sp/>реферала</highlight></codeline>
+<codeline><highlight class="normal">Для<sp/>регистрации<sp/>партнёра<sp/>в<sp/>реферальном<sp/>дереве,<sp/>необходимо<sp/>отправить<sp/>транзакцию<sp/>методом<sp/>reg:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>part<sp/>&apos;[tester1,<sp/>tester2,<sp/>&quot;{}&quot;]&apos;<sp/>-p<sp/>tester1&apos;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Таким<sp/>образом,<sp/>реферал<sp/>самостоятельно<sp/>указывает<sp/>своего<sp/>реферера<sp/>при<sp/>регистрации<sp/>в<sp/>дереве.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Получить<sp/>таблицу<sp/>с<sp/>партнёрами<sp/>можно<sp/>так:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>get<sp/>table<sp/>part<sp/>part<sp/>partners2</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">В<sp/>ответе:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">&quot;rows&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;tester1&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;referer&quot;:<sp/>&quot;tester2&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickname&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickhash&quot;:<sp/>&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id&quot;:<sp/>1,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;cashback&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;status&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;meta&quot;:<sp/>&quot;&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Изменение<sp/>реферера</highlight></codeline>
+<codeline><highlight class="normal">Изменить<sp/>установленного<sp/>реферера<sp/>могут<sp/>контракты<sp/>registrator<sp/>или<sp/>me.<sp/>Для<sp/>этого,<sp/>они<sp/>должны<sp/>отправить<sp/>транзакцию<sp/>для<sp/>реферала<sp/>с<sp/>указанием<sp/>нового<sp/>реферера:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>part<sp/>&apos;[tester1,<sp/>tester3,<sp/>&quot;{}&quot;]&apos;<sp/>-p<sp/>part&apos;</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Тогда,<sp/>после<sp/>получения<sp/>таблицы,<sp/>мы<sp/>увидим<sp/>результат:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">&quot;rows&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;tester1&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;referer&quot;:<sp/>&quot;tester3&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickname&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickhash&quot;:<sp/>&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id&quot;:<sp/>1,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;cashback&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;status&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;meta&quot;:<sp/>&quot;&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Установить<sp/>профиль<sp/>партнёра</highlight></codeline>
+<codeline><highlight class="normal">Для<sp/>того,<sp/>чтобы<sp/>установить<sp/>профиль<sp/>партнёра,<sp/>он<sp/>должен<sp/>вызвать<sp/>метод<sp/>setprofile<sp/>за<sp/>своей<sp/>подписью.<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>part<sp/>profupdate<sp/>&apos;[tester1,<sp/>&quot;{ican:<sp/>\&quot;\&quot;}&quot;]&apos;<sp/>-tester1</highlight></codeline>
+<codeline><highlight class="normal">```<sp/></highlight></codeline>
+<codeline><highlight class="normal">Получим<sp/>таблицу,<sp/>увидим<sp/>результат:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">&quot;rows&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;tester1&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;referer&quot;:<sp/>&quot;tester3&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickname&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickhash&quot;:<sp/>&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id&quot;:<sp/>5,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;cashback&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;status&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;meta&quot;:<sp/>&quot;{ican:<sp/>\&quot;\&quot;}&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Создать<sp/>лидера</highlight></codeline>
+<codeline><highlight class="normal">Создать<sp/>лидера<sp/>сейчас<sp/>может<sp/>только<sp/>аккаунт<sp/>контракта<sp/>me.<sp/>Для<sp/>этого,<sp/>он<sp/>должен<sp/>отправить<sp/>транзакцию<sp/>со<sp/>своей<sp/>подписью:<sp/></highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>part<sp/>setstatus<sp/>&apos;[tester1,<sp/>headman]&apos;<sp/>-p<sp/>part</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Получим<sp/>таблицу,<sp/>увидим<sp/>результат:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">&quot;rows&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;tester1&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;referer&quot;:<sp/>&quot;tester3&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickname&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickhash&quot;:<sp/>&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id&quot;:<sp/>5,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;cashback&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;status&quot;:<sp/>&quot;headman&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;meta&quot;:<sp/>&quot;{ican:<sp/>\&quot;\&quot;}&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Получить<sp/>свободную<sp/>регистрацию</highlight></codeline>
+<codeline><highlight class="normal">Для<sp/>получения<sp/>свободной<sp/>регистрации,<sp/>потенциальный<sp/>реферал<sp/>указать<sp/>пустое<sp/>имя<sp/>аккаунта<sp/>реферера.<sp/></highlight></codeline>
+<codeline><highlight class="normal">Тогда,<sp/>регистрация<sp/>будет<sp/>произведена<sp/>под<sp/>одного<sp/>из<sp/>лидеров<sp/>(в<sp/>случайном<sp/>порядке).</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">cleos<sp/>push<sp/>action<sp/>part<sp/>&apos;[tester4,<sp/>&quot;&quot;,<sp/>&quot;{}&quot;]&apos;<sp/>-p<sp/>tester4</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Тогда<sp/>новый<sp/>партнёр<sp/>будет<sp/>зарегистрирован<sp/>под<sp/>одного<sp/>из<sp/>действующих<sp/>лидеров:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&quot;rows&quot;:<sp/>[{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;username&quot;:<sp/>&quot;tester4&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;referer&quot;:<sp/>&quot;tester1&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickname&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;nickhash&quot;:<sp/>&quot;0000000000000000000000000000000000000000000000000000000000000000&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;id&quot;:<sp/>27,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;cashback&quot;:<sp/>0,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;status&quot;:<sp/>&quot;&quot;,</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&quot;meta&quot;:<sp/>&quot;{}&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Установить<sp/>никнейм</highlight></codeline>
+<codeline><highlight class="normal">Каждый<sp/>пользователь<sp/>может<sp/>установить<sp/>строковый<sp/>никнейм,<sp/>используя<sp/>любые<sp/>буквы<sp/>и<sp/>цифры<sp/>(что<sp/>ограничено<sp/>в<sp/>имени<sp/>пользователя).<sp/>Устанавливая<sp/>никнейм,<sp/>пользователь<sp/>получает<sp/>уникальный<sp/>хэш<sp/>его<sp/>имени,<sp/>что<sp/>может<sp/>быть<sp/>использовано<sp/>в<sp/>веб-терминале<sp/>для<sp/>быстрого<sp/>поиска<sp/>по<sp/>никнеймам.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Документация<sp/>к<sp/>методам<sp/>и<sp/>таблицам<sp/>контракта</highlight></codeline>
+<codeline><highlight class="normal">Документация<sp/>к<sp/>методам<sp/>и<sp/>таблицам<sp/>контракта<sp/>доступна<sp/>в<sp/>папке<sp/>docs/html/index.html</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>TODO</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Ввести<sp/>методы<sp/>установки<sp/>процента<sp/>кэшбэка.<sp/>Контракт<sp/>предусматривает<sp/>возможность<sp/>установки<sp/>кэшбэка<sp/>на<sp/>структуру<sp/>партнёра,<sp/>генерирующего<sp/>реферальное<sp/>вознаграждение.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Ввести<sp/>метод<sp/>установки<sp/>никнейма<sp/>и<sp/>расчёта<sp/>хэша.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>
