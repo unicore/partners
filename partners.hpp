@@ -19,12 +19,19 @@ public:
     {}
 
     [[eosio::action]] void reg(eosio::name username, eosio::name referer, std::string meta);
+    [[eosio::action]] void reg2(eosio::name host, eosio::name username, eosio::name referer, std::string meta);
+    
     [[eosio::action]] void del(eosio::name username);
     [[eosio::action]] void profupdate(eosio::name username, std::string meta);
 
     [[eosio::action]] void setstatus(eosio::name username, eosio::name status);
 
+    [[eosio::action]] void delheadman(uint64_t id);
+    [[eosio::action]] void request( eosio::name to, eosio::name from);
+
     static eosio::name get_random_headman();
+      
+    static void add_promo_budget(eosio::name username, eosio::name code, eosio::asset quantity);
     
     void apply(uint64_t receiver, uint64_t code, uint64_t action);
     
@@ -40,6 +47,7 @@ public:
 
     static constexpr eosio::name _me = "part"_n;              /*!< собственное имя аккаунта контракта */
     static constexpr eosio::name _registrator = "registrator"_n;  /*!< аккаунт контракта регистратора */
+    static constexpr eosio::name _promoter = "promoter"_n;  /*!< аккаунт контракта регистратора */
 
     /**
     * @}
@@ -80,6 +88,48 @@ public:
       eosio::indexed_by<"bynickhash"_n, eosio::const_mem_fun<partners, eosio::checksum256, &partners::bynickhash>>
     > partners_index;
 
+
+
+      
+      //@abi table requests i64
+      struct [[eosio::table]] prequests3 {
+         uint64_t id;
+         eosio::name contract;
+         eosio::name username;
+         eosio::name promoter;
+         eosio::asset amount;
+         uint64_t primary_key()const { return id; }
+         uint128_t byconuser() const {return combine_ids(contract.value, username.value);} /*!< (contract, blocked_now.symbol) - комбинированный secondary_key для получения курса по имени выходного контракта и символу */
+         uint64_t byusername() const{return username.value;}           /*!< return referer - secondary_key 2 */
+        
+         EOSLIB_SERIALIZE( prequests3, (id)(contract)(username)(promoter)(amount))
+      };
+
+       typedef eosio::multi_index<"prequests3"_n, prequests3,
+          eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<prequests3, uint64_t, &prequests3::byusername>>,
+          eosio::indexed_by<"byconuser"_n, eosio::const_mem_fun<prequests3, uint128_t, &prequests3::byconuser>>
+        
+       > prequests_index;
+
+
+        //@abi table requests i64
+      struct [[eosio::table]] pbudgets {
+         uint64_t id;
+         eosio::name username;
+         eosio::name contract;
+         eosio::asset budget;
+         uint64_t primary_key()const { return id; }
+
+         uint64_t byusername() const{return username.value;}           /*!< return referer - secondary_key 2 */
+        
+
+         EOSLIB_SERIALIZE( pbudgets, (id)(username)(contract)(budget))
+      };
+
+       typedef eosio::multi_index<"pbudgets"_n, pbudgets,
+          eosio::indexed_by<"byusername"_n, eosio::const_mem_fun<pbudgets, uint64_t, &pbudgets::byusername>>
+      
+       > pbudgets_index;
 
     /**
      * @brief      Таблица хранения глобальной сети партнёров

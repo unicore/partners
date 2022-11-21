@@ -14,6 +14,16 @@
             ]
         },
         {
+            "name": "delheadman",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
             "name": "headmans",
             "base": "",
             "fields": [
@@ -104,6 +114,54 @@
             ]
         },
         {
+            "name": "pbudgets",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "contract",
+                    "type": "name"
+                },
+                {
+                    "name": "budget",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "prequests3",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "contract",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "promoter",
+                    "type": "name"
+                },
+                {
+                    "name": "amount",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
             "name": "profupdate",
             "base": "",
             "fields": [
@@ -136,6 +194,42 @@
             ]
         },
         {
+            "name": "reg2",
+            "base": "",
+            "fields": [
+                {
+                    "name": "host",
+                    "type": "name"
+                },
+                {
+                    "name": "username",
+                    "type": "name"
+                },
+                {
+                    "name": "referer",
+                    "type": "name"
+                },
+                {
+                    "name": "meta",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "request",
+            "base": "",
+            "fields": [
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "from",
+                    "type": "name"
+                }
+            ]
+        },
+        {
             "name": "setstatus",
             "base": "",
             "fields": [
@@ -157,6 +251,11 @@
             "ricardian_contract": ""
         },
         {
+            "name": "delheadman",
+            "type": "delheadman",
+            "ricardian_contract": ""
+        },
+        {
             "name": "profupdate",
             "type": "profupdate",
             "ricardian_contract": ""
@@ -164,6 +263,16 @@
         {
             "name": "reg",
             "type": "reg",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "reg2",
+            "type": "reg2",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "request",
+            "type": "request",
             "ricardian_contract": ""
         },
         {
@@ -190,6 +299,20 @@
         {
             "name": "partners2",
             "type": "partners2",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "pbudgets",
+            "type": "pbudgets",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "prequests3",
+            "type": "prequests3",
             "index_type": "i64",
             "key_names": [],
             "key_types": []
