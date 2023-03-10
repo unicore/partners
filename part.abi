@@ -263,7 +263,7 @@
         {
             "name": "reg",
             "type": "reg",
-            "ricardian_contract": ""
+            "ricardian_contract": "---\nspec_version: \"0.2.0\"\ntitle: Cleanup Unused REX Data\nsummary: 'Delete REX related DB entries and free associated RAM'\nicon: @ICON_BASE_URL@/@REX_ICON_URI@\n---\n\nDelete REX related DB entries and free associated RAM for {{owner}}.\n\nTo fully delete all REX related DB entries, {{owner}} must ensure that their REX balance and REX fund amounts are both zero and they have no outstanding loans."
         },
         {
             "name": "reg2",
@@ -318,6 +318,11 @@
             "key_types": []
         }
     ],
-    "ricardian_clauses": [],
+    "ricardian_clauses": [
+        {
+            "id": "UserAgreement",
+            "body": "User agreement for the chain can go here."
+        }
+    ],
     "variants": []
 }
